@@ -1,0 +1,36 @@
+doctype html
+include navbar.jade
+html
+    head
+        style.
+            body{
+                background-image:url('https://wallpaperaccess.com/full/2881.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        
+    body
+        //- file in outJavascripts/register.js will be rendered
+        script(src='/javascripts/register.js')
+
+        div.card.text-white.mt-3.ml-1.bg(style='max-width: 18rem;')
+            div.card-header Register
+            div.card-body(style="color:#4a637c;")
+                form#register-form
+                    div.form-group
+                        label(for='exampleInputName1') Username
+                        input#username.form-control(type='name' placeholder='Enter Username')
+                        label(for='exampleInputEmail1') Email address
+                        input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
+                        label(for='exampleInputPassword1') Password
+                        input#password.form-control(type='password' placeholder='Password')
+                        label(for='exampleInputPassword1') Confirm password
+                        input#confirmPassword.form-control(type='password' placeholder='Password')
+                    //- div.form-check
+                    //-     input#exampleCheck1.form-check-input(type='checkbox')
+                        //- label.form-check-label(for='exampleCheck1') Check me out
+                    button#register-button.btn.btn-primary(type='submit', value='Submit', onclick='register()') Register
+                    //- input.form-control(type='submit') Submit
+
+

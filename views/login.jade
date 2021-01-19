@@ -1,0 +1,33 @@
+doctype html
+include navbar.jade
+html
+    head
+
+        script(src='/javascripts/login.js')
+
+        style.
+            body{
+                background-image:url('https://wallpaperaccess.com/full/2881.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+            .h-100{
+                
+            }
+    body
+            
+        div.card.text-white.mt-3.ml-1.bg(style='max-width: 18rem;')
+            div.card-header Login
+            div.card-body(style="color:#4a637c;")
+                form
+                    div.form-group
+                        label(for='exampleInputEmail1') Email address
+                        input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
+                    div.form-group
+                        label(for='exampleInputPassword1') Password
+                        input#password.form-control(type='password' placeholder='Password')
+                    //- div.form-check
+                    //-     input#exampleCheck1.form-check-input(type='checkbox')
+                        //- label.form-check-label(for='exampleCheck1') Check me out
+                    button.btn.btn-primary(type='submit', onclick='login()') Login
