@@ -12,15 +12,15 @@ html
                 background-attachment: fixed;
                 background-size: 100% 100%;
             }
-            .h-100{
-                
+            #login-form{
+                color:white;
             }
     body
             
         div.card.text-white.mt-3.ml-1.bg(style='max-width: 18rem;')
             div.card-header Login
             div.card-body(style="color:#4a637c;")
-                form
+                form#login-form
                     div.form-group
                         label(for='exampleInputEmail1') Email address
                         input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
@@ -31,3 +31,5 @@ html
                     //-     input#exampleCheck1.form-check-input(type='checkbox')
                         //- label.form-check-label(for='exampleCheck1') Check me out
                     button.btn.btn-primary(type='submit', onclick='login()') Login
+                    p.mt-3 New user?
+                        a(href="/auth/register") Register

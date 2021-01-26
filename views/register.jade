@@ -8,8 +8,10 @@ html
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
+            }  
+            #register-form{
+                color:white;
             }
-        
     body
         //- file in outJavascripts/register.js will be rendered
         script(src='/javascripts/register.js')
@@ -32,5 +34,7 @@ html
                         //- label.form-check-label(for='exampleCheck1') Check me out
                     button#register-button.btn.btn-primary(type='submit', value='Submit', onclick='register()') Register
                     //- input.form-control(type='submit') Submit
+                    p.mt-3 Alerady have an account?
+                        a(href="/auth/login") Login
 
 

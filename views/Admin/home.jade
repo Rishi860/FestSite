@@ -1,0 +1,27 @@
+doctype html
+include ../navbar.jade
+html
+    head
+        title= title
+        link(rel="stylesheet", href="/styles/home.css")
+    body
+        //- section#admin-panel
+        //-     #admin-con.container.py-2.text-center
+        //-         #admin-nav.row.mb-1
+        //-             .col
+        //-                 button.btn.btn-lg.btn-block Catalog
+        //-                 //- h1
+        //-                 //-     a.badge.badge-light(href='#') CATALOG
+        //-             .col
+        //-                 button.btn.btn-lg.btn-block Users
+        //- #admin-panel.row
+        //-     .col.p-0
+        //-         button.btn.btn-lg.btn-block(onclick='getUsers') Users
+        //-     .col.p-0
+        //-         button.btn.btn-lg.btn-block(onclick='getCatalog') Catalog
+        #admin-panel.row
+            .col.p-0
+                a.btn.btn-lg.active.btn-block(href='/admin/users' role='button' aria-pressed='true') Users
+            .col.p-0
+                a.btn.btn-lg.active.btn-block(href='/admin/catalog' role='button' aria-pressed='true') Catalog
+

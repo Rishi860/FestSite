@@ -1,8 +1,8 @@
-// // const express = express();
-// // const router = express.Router()
+const express = require('express')
+const router = express.Router();
 
-// module.exports = (app)=>{
-//     app.get('/',function(req, res){
-//         res.render('home',{title:'Rekker'})
-//     })   
-// }
+router.get('/catalog', function(req, res){
+    res.render('catalog',{title:'Catalog'})
+})
+
+module.exports = router

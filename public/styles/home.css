@@ -1,0 +1,10 @@
+#admin-panel{
+    background-color: #f8f9fa;
+}
+
+#admin-panel a{
+    color: black;
+}
+#admin-panel a:hover{
+    background-color: #bac6d3;
+}
