@@ -3,11 +3,13 @@ const { model, Schema } = require("mongoose");
 
 const functionsSchema = new Schema({
     name:{type:String, required:true, unique:true},
-    type:{type:String, enum:['event', 'workshop'], default:'event'},
+    type:{type:String, enum:['Event', 'Workshop'], default:'event'},
     description: String,
     eventDate:{type:Date},
     image: String,// url of image
-    eventTime:{type:String, match:/[1-12](AM|PM)-[1-12](AM|PM)/}
+    eventTime:{type:String, match:/[0-1][1-9](AM|PM)-[0-1][1-9](AM|PM)/}
 })
 
-module.exports = model("Functions", functionsSchema);
+// module.exports = model("Functions", functionsSchema);
+const Functions = model("Functions", functionsSchema);
+module.exports = Functions

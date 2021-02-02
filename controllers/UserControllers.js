@@ -3,8 +3,10 @@ const userService = require('./userService')
 exports.preRegister = async function(req, res){
     try {
         console.log(req.body)
-        const token = await userService.login(req.body)
+        const payload = req.body
+        const token = await userService.register(payload)
         console.log('final')
+        console.log(token)
         return res.status(200).json({
             success: true,
             token,

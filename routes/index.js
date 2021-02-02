@@ -1,8 +1,14 @@
 const express = require('express')
 const router = express.Router();
+const EventControllers = require("../controllers/EventControllers")
 
-router.get('/catalog', function(req, res){
-    res.render('catalog',{title:'Catalog'})
+// const {verifytoken} = require('../controllers/userService') verifytoken,
+
+router.get('/catalog',
+    EventControllers.getEvent)
+
+router.get('/', function(req, res){
+    res.render('home',{title:'Home'})
 })
 
 module.exports = router

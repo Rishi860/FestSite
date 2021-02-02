@@ -1,0 +1,40 @@
+doctype html
+
+include ../navbar.jade
+
+html
+    head
+        //- title= data._id
+        //- script(src="/javascripts/adminCatalog.js")
+        link(rel="stylesheet", href="/styles/dashboard.css")
+        link(rel="stylesheet", href="/styles/adminCatalog.css")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    
+    body
+        #admin-panel.row
+            .col.p-0
+                a#users.btn.btn-lg.active.btn-block(href='/admin/users' role='button' aria-pressed='true') Users
+            .col.p-0
+                a#catalog.btn.btn-lg.active.btn-block(href='/admin/catalog' role='button' aria-pressed='true') Catalog
+        
+        mixin catalog(data)
+            section#team
+                .container.my-3.py-5.text-center
+                    .row.mb-2
+                        a.btn.btn-primary(href='/admin/catalog/add' role='button' aria-pressed='true') ADD
+                        .col
+                            h1 CATALOG
+                    .row
+                        each event in data
+                            .4.col-lg-4.col-md-6
+                                .card
+                                    .card-body
+                                        img(src='#{event.image}', alt="image 1", class="mb-3")
+                                        h3#eName= event.name
+                                        h5= event.type
+                                        p= event.description
+                                        .d-flex.flex-row.justify-content-center
+                                            .p-4
+                                                a.btn.btn-primary(href='/admin/edit/#{event._id}') Edit
+                                                //- button.btn.btn-primary(onclick='edit(\'' + event._id+ '\')') Edit
+        +catalog(data)

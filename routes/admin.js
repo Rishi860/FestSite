@@ -1,17 +1,25 @@
 const express = require('express')
 const router = express.Router()
-const UserControllers = require("../controllers/UserControllers")
+// const UserControllers = require("../controllers/UserControllers")
+const EventControllers = require("../controllers/EventControllers")
 
 router.get('/',function(req, res){
-    res.render('home',{title:'Admin'})
+    res.render('adminHome',{title:'Admin'})
 })
-router.post('/login',
-UserControllers.preLogin)
 
-router.get('/catalog',function(req, res){
-    res.render('adminCatalog',{title:'Catalog'})
+router.get('/catalog',
+EventControllers.getEvent)
+router.get('/catalog/add',function(req, res){
+    res.render('adminCatalogAdd',{title:'New Item'})
 })
-router.post('/register',
-UserControllers.preRegister) 
+router.post('/catalog/create',
+EventControllers.create) 
+router.post('/catalog/update',
+EventControllers.update) 
+
+router.get('/edit/:id',
+EventControllers.editEvent)
+router.get('/delete/:id',
+EventControllers.delete)
 
 module.exports = router

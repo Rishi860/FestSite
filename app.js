@@ -24,7 +24,7 @@ app.use("/images", express.static("./public/images"));
 app.use("/styles", express.static("./public/styles"));
 
 // setting multiple view folders
-app.set('views', [__dirname + '/views', __dirname + '/views/admin'])
+app.set('views', [__dirname + '/views/admin', __dirname + '/views'])
 app.set('view engine', 'jade');
 
 // routes
@@ -34,7 +34,8 @@ app.use('/admin', adminRouter)
 // require('./routes')(app)
 mongoose.connect(`mongodb://localhost:27017/sample`, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
  },
  function (err, res) {
   if (err) {

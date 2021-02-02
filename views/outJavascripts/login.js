@@ -17,12 +17,12 @@ async function login(){
             },
             body: JSON.stringify(data), // body data type must match "Content-Type" header
         })
-        console.log('here')
-        console.log(response)
-        // const data1 = response.json();
-        // console.log(data1)
-        // console.log('response:', response)
-        // console.log('Success:', response.json());
+        const res = await response.json();
+        if(res.success){
+            localStorage.setItem('token',res.token)
+            window.location.href = '/'
+        }
+    
     } catch (error) {
         console.log('catch')
         console.error(error);

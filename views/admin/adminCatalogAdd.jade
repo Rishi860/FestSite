@@ -1,0 +1,82 @@
+doctype html
+include ../navbar.jade
+html
+    head
+        title= title
+        script(src="/javascripts/addEvent.js")
+        link(rel="stylesheet", href="/styles/adminCatalog.css")
+
+    body
+
+        #admin-panel.row
+            .col.p-0
+                a#users.btn.btn-lg.active.btn-block(href='/admin/users' role='button' aria-pressed='true') Users
+            .col.p-0
+                a#catalog.btn.btn-lg.active.btn-block(href='/admin/catalog' role='button' aria-pressed='true') Catalog
+
+        .m-2
+
+            .mb-3
+                | Event Name
+                input#eventName.form-control(type='text' aria-label='Default' aria-describedby='inputGroup-sizing-default')
+
+            | Type
+            .input-group.mb-3
+                select#type.custom-select
+                    option(selected='Event') Event
+                    option(value='Workshop') Workshop
+
+            //- .input-group.mb-3
+            //-     | Image
+            //-     .custom-file
+            //-         input#image.custom-file-input(type='file')
+            //-         label.custom-file-label(for='inputGroupFile04') Choose file
+            //-     .input-group-append
+            //-         button.btn.btn-outline-secondary(type='button') Button
+            //- instead taking image url
+            | Image Url
+            .mb-3
+                input#image.form-control(type='text' aria-label='Default' aria-describedby='inputGroup-sizing-default')
+
+            | Date
+            .input-group.mb-3
+                input#date.form-control(type='text' placeholder="DD/MM/YYYY" aria-label='Default' aria-describedby='inputGroup-sizing-default')
+                select#startTime.custom-select
+                    option(selected='01') 01
+                    option(value='02') 02
+                    option(value='03') 03
+                    option(value='04') 04
+                    option(value='05') 05
+                    option(value='06') 06
+                    option(value='07') 07
+                    option(value='08') 08
+                    option(value='09') 09
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+                select#ampm1.custom-select
+                    option(selected='PM') PM
+                    option(value='AM') AM
+                select#endTime.custom-select
+                    option(selected='01') 01
+                    option(value='02') 02
+                    option(value='03') 03
+                    option(value='04') 04
+                    option(value='05') 05
+                    option(value='06') 06
+                    option(value='07') 07
+                    option(value='08') 08
+                    option(value='09') 09
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+                select#ampm2.custom-select
+                    option(selected='PM') PM
+                    option(value='AM') AM
+
+            | Description
+            .input-group.mb-3
+                textarea#desc.form-control(aria-label='With textarea' maxlength="100")
+
+            button.btn.btn-primary(onclick="add()") Create
+
