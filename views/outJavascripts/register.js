@@ -11,7 +11,7 @@ function register(){
             email: email,
             password: password
         }
-        fetch('http://localhost:8080/register', {
+        fetch('http://localhost:8080/auth/register', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
             'Content-Type': 'application/json'

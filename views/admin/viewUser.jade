@@ -1,0 +1,39 @@
+doctype html
+include ./adminHome.jade
+html 
+    head
+        title= title
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    body
+        section#team
+            .container.my-3.py-5
+                .row.mb-2
+                    .col.text-center
+                        h1 Profile
+
+                .row.mb-2
+                    .col
+                        label Name
+                        h3= data.name
+                        label Email
+                        h5= data.email
+                        label Role
+                        h5= data.role
+                            if data.role=='admin'
+                                a(href="#" text-size='5px') Downgrade?
+                            else
+                                a(href="#" text-size='5px') Upgrade?
+
+                .row
+                    if events 
+                        each event in events
+                            .4.col-lg-4.col-md-6
+                                .card.text-center
+                                    .card-body
+                                        img(src='#{event.image}', alt="image 1", class="mb-3")
+                                        h3#eName= event.name
+                                        h5= event.type
+                                        //- p= event.description
+                                        .d-flex.flex-row.justify-content-center
+                                            .p-4
+                                                a.btn.btn-primary(href='/admin/edit/#{event._id}') De-Register

@@ -23,7 +23,7 @@ const UserSchema = new Schema({
     default: "student",
   },
   created: Date,
-  participantIn: [{type:String}],// Storing only the ids of the events participating in.
+  participantIn: [String],// Storing only the ids of the events participating in.
 })
 
 // Adds User.paginate({})

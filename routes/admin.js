@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const UserControllers = require("../controllers/UserControllers")
+const UserControllers = require("../controllers/UserControllers")
 const EventControllers = require("../controllers/EventControllers")
 
 router.get('/',function(req, res){
@@ -21,5 +21,10 @@ router.get('/edit/:id',
 EventControllers.editEvent)
 router.get('/delete/:id',
 EventControllers.delete)
+
+router.get('/users',
+UserControllers.userList)
+router.get('/users/:id',
+UserControllers.userInfo)
 
 module.exports = router

@@ -1,0 +1,24 @@
+doctype html
+include ./adminHome.jade
+html
+    head
+    body
+        //- <table class="">
+        //- ...
+        //- </table>
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') #
+                    th(scope='col') User Name
+                    th(scope='col') Email Address
+                    th(scope='col') View
+            tbody
+                each user in data
+                    tr
+                        th(scope='row') 1
+                        td= user.name
+                        td= user.email
+                        td
+                            a.stretched-link(href='/admin/users/#{user._id}') View
+                    
