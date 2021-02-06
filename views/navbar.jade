@@ -3,6 +3,7 @@ html( lang="en" )
     head
         title Rekker Fest
         meta(charset='utf-8')
+        script(src="/javascripts/logout.js")
         meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
 
         //- Bootswatch Theme
@@ -45,6 +46,7 @@ html( lang="en" )
                     a.nav-link(href='/catalog') Catalog
                     a.nav-link(href='/admin') admin
                     a.nav-link(href='/auth/login') Login
+                    a.nav-link(onclick='logout()' href='/') Logout
                     a.nav-link(href='/auth/register') Register
                     //- button.btn.btn-outline-light.my-2.my-sm-0(formaction="/login") Login
                     //- button.ml-2.btn.btn-outline-light(action="/register") Register

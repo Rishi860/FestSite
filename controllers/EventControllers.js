@@ -73,6 +73,21 @@ exports.getEvent = async function(req, res){
                 console.log(err)
                 res.send('Databse is empty')
             } else {
+                res.render('catalog',{data:result})
+            }
+        })
+    } catch (error) {
+        return res.status(401).json({ success: false, message: `${error}` });
+    }
+}
+
+exports.getAdminEvent = async function(req, res){
+    try {
+        await Functions.find({},function(err, result){
+            if(err){
+                console.log(err)
+                res.send('Databse is empty')
+            } else {
                 res.render('adminCatalog',{data:result})
             }
         })
@@ -98,17 +113,14 @@ exports.delete = async function(req, res){
 
 exports.getUserEvents = async function(ids){
     try {
-        // ids is set of array containing id's
-        await Functions.find({
-            '_id': { $in: ids}
-        },function(err, result){
-            if(err){
-                console.log(err)
-                res.send(`Something wrong happened- ${err}`)
-            } else {
-                return result
-            }
-        })
+        return await Functions.find({
+                _id: { $in: ids}
+            },function(err, doc){
+                if(err){
+                    console.log(err)
+                    res.send(`Something wrong happened- ${err}`)
+                }
+            })
     } catch (error) {
         return res.status(401).json({ success: false, message: `${error}` });
     }

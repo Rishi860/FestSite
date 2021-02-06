@@ -80,16 +80,27 @@ exports.createToken = async function (user_id) {
 exports.verifytoken = async function(req, res, next){
     try {
         // console.log(req.body)
-        const token = localStorage.getItem('token')
-        console.log(req.headers)
-        const payload = req.headers.token;
+        const {token} = req.headers
+        console.log(token)
+        // const payload = req.headers.token;
         console.log('verifying :')
-        jwt.verify(payload, 'secret_key')
+        jwt.verify(token, 'secret_key')
         console.log('Success')
-        next();
+        res.status(200).json({success:true})
+        // next();
         // return {success: true,token}
 
     } catch (error) {
+        let e = new Error('Invalid Token')
+        // e.status(400)
+        // next(e)
         return res.status(401).json({ success: false, message: `${error}` });
     }
+}
+
+exports.decodeToken = function(token){
+    const decoded = jwt.verify(token, 'secret_key');  
+    var userId = decoded.user_id
+    console.log('userId')
+    return userId
 }

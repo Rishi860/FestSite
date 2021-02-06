@@ -8,7 +8,7 @@ router.get('/',function(req, res){
 })
 
 router.get('/catalog',
-EventControllers.getEvent)
+EventControllers.getAdminEvent)
 router.get('/catalog/add',function(req, res){
     res.render('adminCatalogAdd',{title:'New Item'})
 })
@@ -26,5 +26,7 @@ router.get('/users',
 UserControllers.userList)
 router.get('/users/:id',
 UserControllers.userInfo)
+router.get('/deregister/:id',
+UserControllers.eventDreg)
 
 module.exports = router

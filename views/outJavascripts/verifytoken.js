@@ -1,6 +1,7 @@
 // watching if the user is online or not
 console.log('verify token in fo=rontend')
-fetch(`${url}/auth/verifytoken`, {
+// console.log(localStorage.getItem('token'))
+fetch(`/auth/verifytoken`, {
     method: 'GET',
     headers: {
       token: `${localStorage.getItem('token')}`,
@@ -11,8 +12,9 @@ fetch(`${url}/auth/verifytoken`, {
     })
     .then((res) => {
         console.log(res)
+        console.log('')
       if (!res.success) {
-        window.location.href = '/login.html';
+        window.location.href = '/auth/login';
       }
     })
     .catch((err) => {

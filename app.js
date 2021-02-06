@@ -7,6 +7,7 @@ const cors = require('cors')
 const authRouter = require('./routes/auth')
 const adminRouter = require('./routes/admin')
 const indexRouter = require('./routes/index')
+const userRouter = require('./routes/user')
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.set('view engine', 'jade');
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/admin', adminRouter)
+app.use('/user', userRouter)
 // require('./routes')(app)
 mongoose.connect(`mongodb://localhost:27017/sample`, {
   useNewUrlParser: true,

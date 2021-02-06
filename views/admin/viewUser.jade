@@ -3,6 +3,8 @@ include ./adminHome.jade
 html 
     head
         title= title
+        script(src="/javascripts/eventRegister.js")
+        link(rel="stylesheet", href="/styles/dashboard.css")
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     body
         section#team
@@ -33,7 +35,6 @@ html
                                         img(src='#{event.image}', alt="image 1", class="mb-3")
                                         h3#eName= event.name
                                         h5= event.type
-                                        //- p= event.description
                                         .d-flex.flex-row.justify-content-center
                                             .p-4
-                                                a.btn.btn-primary(href='/admin/edit/#{event._id}') De-Register
+                                                a.btn.btn-primary(onclick='deregister(\'' + event._id+ '\',\'' + data._id+ '\')') De-Register

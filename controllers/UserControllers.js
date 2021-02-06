@@ -4,11 +4,8 @@ const EventControllers = require('./EventControllers')
 
 exports.preRegister = async function(req, res){
     try {
-        console.log(req.body)
         const payload = req.body
         const token = await userService.register(payload)
-        console.log('final')
-        console.log(token)
         return res.status(200).json({
             success: true,
             token,
@@ -21,12 +18,8 @@ exports.preRegister = async function(req, res){
 
 exports.preLogin = async function(req, res){
     try {
-        // console.log(req.body)
         const payload = req.body;
-        console.log('payload :')
         const token = await userService.login(payload);
-        console.log('out from login',token)
-        // return {success: true,token}
         res.status(200).json({
             success: true,
             token,
@@ -41,7 +34,6 @@ exports.userInfo = async function(req, res){
     try {
         const data = await User.findOne({_id:req.params.id},async function(err, doc){
             if (err){
-                console.log(err)
                 res.send(`Can not find the user requested for error- ${err}`)
             } else{
                 const EventData = await EventControllers.getUserEvents(doc.participantIn)
@@ -64,7 +56,32 @@ exports.userList = async function(req, res){
             }
         })
     } catch (error) {
-        return res.status(401).json({ success: false, message: `${error}` });
+        return res.status(401).json({message: `${error}` });
         
+    }
+}
+
+exports.eventRegister = async function(req, res){
+    try {
+        const {token} = req.headers
+        const userId = await userService.decodeToken(token)
+        await User.updateOne({_id:userId},{
+            $addToSet: {participantIn:`${req.params.id}`}
+        })
+        res.status(200).json({message:'Event Registration Successful'})
+    } catch (error) {
+        return res.status(401).json({message: `${error}` });
+    }
+}
+
+exports.eventDreg = async function(req, res){
+    try {
+        const {userid} = req.headers
+        await User.updateOne({_id:userid},{
+            $pull: {participantIn:`${req.params.id}`}
+        })
+        res.status(200).json({message:'Event De-Registration Successful',ok:1})
+    } catch (error) {
+        return res.status(401).json({message: `${error}`,ok:0});
     }
 }
