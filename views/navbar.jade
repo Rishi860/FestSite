@@ -9,6 +9,16 @@ html( lang="en" )
         //- Bootswatch Theme
         link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
 
+        //- - let data = {login:'false', role:'student'}
+        //- if payload
+        //-     - let data = {login:payload.login, role:payload.role}
+
+    //- script.
+        //- const token = localstorage.getItem('token');
+        //- if (token){
+        //-     let payload = {login:true, role:}
+        //- }
+
     style.
         .bg{
             background-color:#2c3e50;
@@ -43,11 +53,15 @@ html( lang="en" )
                             //- div.dropdown-divider
                             //-     a.dropdown-item(href='#') Something else here
                 form.form-inline.my-2.my-lg-0
-                    a.nav-link(href='/catalog') Catalog
-                    a.nav-link(href='/admin') admin
-                    a.nav-link(href='/auth/login') Login
-                    a.nav-link(onclick='logout()' href='/') Logout
-                    a.nav-link(href='/auth/register') Register
+                        a.nav-link(href='/catalog') Catalog
+                    #admin(style='display: none')
+                        a.nav-link(href='/admin') admin
+                    #logFalse
+                        a.nav-link(href='/auth/login') Login
+                        a.nav-link(href='/auth/register') Register
+                    #logTrue(style='display: none')
+                        a.nav-link(href='/user/dashboard') Dashboard
+                        a.nav-link(onclick='logout()' href='/') Logout
                     //- button.btn.btn-outline-light.my-2.my-sm-0(formaction="/login") Login
                     //- button.ml-2.btn.btn-outline-light(action="/register") Register
         

@@ -81,12 +81,12 @@ exports.verifytoken = async function(req, res, next){
     try {
         // console.log(req.body)
         const {token} = req.headers
-        console.log(token)
+        // console.log(token)
         // const payload = req.headers.token;
-        console.log('verifying :')
+        // console.log('verifying :')
         jwt.verify(token, 'secret_key')
-        console.log('Success')
-        res.status(200).json({success:true})
+        // console.log('Success')
+        res.status(200).json({success:true,login:true})
         // next();
         // return {success: true,token}
 
@@ -101,6 +101,33 @@ exports.verifytoken = async function(req, res, next){
 exports.decodeToken = function(token){
     const decoded = jwt.verify(token, 'secret_key');  
     var userId = decoded.user_id
-    console.log('userId')
+    // console.log('userId')
     return userId
+}
+
+exports.loginState = async function(req, res){
+    let payload = {
+        login:false,
+        role:'student'
+    }
+    try {
+        const {token}  = req.headers;
+        // const token = localStorage.getItem('token')
+        if(token){
+            console.log("token here!!!")
+            // console.log(token)
+            const {user_id} = jwt.verify(token,'secret_key');
+            // console.log(user_id)
+            let {role} = await User.findOne({_id:user_id})
+            // console.log(role)
+            payload = {
+                login: true,
+                role
+            }
+        }
+        console.log('I am in loginState')
+        res.send(payload)
+    } catch (error) {
+        return res.send(payload);
+    }
 }

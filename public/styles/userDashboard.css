@@ -1,0 +1,30 @@
+.left,.right{
+    height: 50vh;
+    width: 100%;
+}
+
+.left{
+    background-color: #364d63;
+}
+
+.right{
+    background-color: white;
+}
+
+@media screen and (min-width:568px){
+    .left, .right{
+        height: 100vh;
+    }
+}
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .centered img {
+    width: 150px;
+    border-radius: 50%;
+  }

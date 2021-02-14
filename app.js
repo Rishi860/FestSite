@@ -25,7 +25,7 @@ app.use("/images", express.static("./public/images"));
 app.use("/styles", express.static("./public/styles"));
 
 // setting multiple view folders
-app.set('views', [__dirname + '/views/admin', __dirname + '/views'])
+app.set('views', [__dirname + '/views/admin',__dirname + '/views/user', __dirname + '/views'])
 app.set('view engine', 'jade');
 
 // routes
