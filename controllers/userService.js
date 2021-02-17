@@ -118,11 +118,12 @@ exports.loginState = async function(req, res){
             // console.log(token)
             const {user_id} = jwt.verify(token,'secret_key');
             // console.log(user_id)
-            let {role} = await User.findOne({_id:user_id})
+            let {role, _id} = await User.findOne({_id:user_id})
             // console.log(role)
             payload = {
                 login: true,
-                role
+                role,
+                id: _id,
             }
         }
         console.log('I am in loginState')

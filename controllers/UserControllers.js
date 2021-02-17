@@ -85,3 +85,38 @@ exports.eventDreg = async function(req, res){
         return res.status(401).json({message: `${error}`,ok:0});
     }
 }
+
+exports.rolechange = async function(req, res){
+    try {
+        let userId = req.params.id
+        let {role} = await User.findOne({_id:userId})
+        if (role === 'admin'){
+            await User.updateOne({_id:userId}, {role:'student'})
+        } else {
+            await User.updateOne({_id:userId}, {role:'admin'})
+        }
+        res.status(200).json({message:'Role update Successful',ok:1})
+    } catch (error) {
+        return res.status(401).json({message: `${error}`,ok:0});
+    }
+}
+
+exports.userDash = async function(req, res){
+    try {
+        const userId = req.params.id
+        // console.log(req.headers)
+        // const userId = await userService.decodeToken(token)
+        const data = await User.findOne({_id:userId},async function(err, doc){
+            if (err){
+                res.send(`Can not find the user requested for error- ${err}`)
+            } else{
+                console.log('in else')
+                const EventData = await EventControllers.getUserEvents(doc.participantIn)
+                console.log(doc, EventData)
+                res.render('dashboard', {title:'User Dashboard', data: doc, events:EventData})
+            }
+        })
+    } catch (error) {
+        return res.status(401).json({ success: false, message: `${error}` });
+    }
+}

@@ -23,9 +23,9 @@ html
                         label Role
                         h5= data.role
                             if data.role=='admin'
-                                a(href="#" text-size='5px') Downgrade?
+                                a(onclick='rolechange(\'' + data._id+ '\')' href="" text-size='5px') Downgrade?
                             else
-                                a(href="#" text-size='5px') Upgrade?
+                                a(onclick='rolechange(\'' + data._id+ '\')' href="" text-size='5px') Upgrade?
 
                 .row
                     if events 

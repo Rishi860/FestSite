@@ -21,6 +21,7 @@ fetch(`/loginstate`, {
           console.log('in login')
           let logTrue = document.getElementById('logTrue');
           let logFalse = document.getElementById('logFalse');
+          document.getElementById('loginurl').href = `/user/dashboard/${res.id}`;
           logFalse.style['display'] = 'none';
           logTrue.style.removeProperty('display');
         }

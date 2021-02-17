@@ -31,3 +31,13 @@ async function deregister(eventId, userId){
     else alert(`${response.message}`)
     window.location.reload();
 }
+
+async function rolechange(id){
+    let response = await fetch(`/admin/rolechange/${id}`, {
+        method: 'GET',
+    })
+    response  = await response.json();
+    if (response.ok) alert(`${response.message}`)
+    else alert(`${response.message}`)
+    window.location.reload();
+}

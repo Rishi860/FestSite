@@ -7,12 +7,23 @@ html
     link(rel="stylesheet", href="/styles/userDashboard.css")
     link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
   body
-    .row
-      .left.col-md-4
-        .centered(style="font-size: 48px;")
-          i.fa.fa-user.fa-lg.mb-3
-          .text-white
-            h2 data.name
-            h3 data.email
-            h4 data.role
-      .right.col-md-8
+      .row
+        .left.col-md-4
+          .centered(style="font-size: 48px;")
+            i.fa.fa-user.fa-lg.mb-3
+            .text-white
+              h2= data.name
+              h3= data.email
+              h4= data.role
+        .right.col-md-8
+          if events 
+            each event in events
+              .4.col-lg-4.col-md-3
+                .card.text-center
+                  .card-body
+                    img(src='#{event.image}', alt="image 1", class="mb-3")
+                    h3#eName= event.name
+                    h5= event.type
+                    .d-flex.flex-row.justify-content-center
+                      .p-4
+                        a.btn.btn-primary(onclick='deregister(\'' + event._id+ '\',\'' + data._id+ '\')') De-Register

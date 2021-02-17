@@ -7,8 +7,7 @@ const router = express.Router();
 router.get('/register/:id',
 UserControllers.eventRegister)
 
-router.get('/dashboard', (req, res)=>{
-    res.render('dashboard',{title:'User Dashboard'})
-})
+router.get('/dashboard/:id',
+UserControllers.userDash)
 
 module.exports = router
