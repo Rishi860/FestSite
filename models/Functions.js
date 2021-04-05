@@ -7,7 +7,7 @@ const functionsSchema = new Schema({
     description: String,
     eventDate:{type:Date},
     image: String,// url of image
-    eventTime:{type:String, match:/[0-1][1-9](AM|PM)-[0-1][1-9](AM|PM)/}
+    eventTime:{type:String, match:/[0-1][0-9](AM|PM)-[0-1][0-9](AM|PM)/}
 })
 
 // module.exports = model("Functions", functionsSchema);

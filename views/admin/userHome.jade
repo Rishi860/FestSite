@@ -16,11 +16,13 @@ html
                     th(scope='col') Email Address
                     th(scope='col') View
             tbody
+                - count = 1
                 each user in data
                     tr
-                        th(scope='row') 1
+                        th(scope='row')= count
                         td= user.name
                         td= user.email
                         td
                             a.stretched-link(href='/admin/users/#{user._id}') View
+                    - count = count + 1
                     

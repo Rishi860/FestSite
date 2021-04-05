@@ -1,8 +1,207 @@
 doctype html
 include ./navbar.jade
-html
-    head
-        script(src="/javascripts/loginState.js")
-        title= title 
-    body
-        h1 title
+
+html(lang='en-US')
+  head
+    meta(charset='utf-8')
+    script(src="/javascripts/loginState.js")
+    title About Us
+    link(rel='icon' href='clublogo.jpg')
+    link(rel='stylesheet' href='stylesheet.css')
+    link(rel="stylesheet", href="/styles/hom.css")
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap' rel='stylesheet')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap' rel='stylesheet')
+    //- link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body(style='margin: 0px;')
+    .header
+      .titleblock
+        //- .header-logo
+        //-   img(src='images//images/image1.jpeg' alt='image not available')
+        //-   b rECursion
+        //- nav.navbar.navbar-expand-sm.bg-transparent
+        //-   ul
+        //-     li
+        //-       a(href='') Contact Us
+        //-     li
+        //-       a(href='') About Us
+        //-     li
+        //-       a(href='') Home
+      .imageon
+        p
+          | ReKkER
+          br
+        .welcome
+          p  Welcomes You!! 
+    .main
+      .info
+        .quote
+          p About Us 
+        .Motive(id='Motive!')
+          p
+            | Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+          br
+          br
+          p
+            | “
+            span Alone we can do so
+            |  little. Together we can do so much.”
+          br
+          br
+      .TeamMember
+        h1 Team Members
+        br
+        br
+        br
+        .details
+          .4.col-lg-4.col-md-3
+            .card.text-center
+              .card-body
+                img(src='#', alt="image 1", class="mb-3")
+                h3 #eName= event.name
+                h5  event.type
+                .d-flex.flex-row.justify-content-center
+                  .p-4
+                    a.btn.btn-primary(onclick='') De-Register
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Akshay Sharma
+            br
+            i.fab.fa-linkedin-in
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Abhishek Jain
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .details
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Ashutosh
+            br
+            a(target='_blanck' href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; ')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Aastha 
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Gargi Singh
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .details
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Prasuk Jain
+            br
+            a(target='_blanck' href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; ')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Ravi
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Garvi
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .details
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Muskan Jaiswal
+            br
+            a(target='_blanck' href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; ')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Prakhar Agrawal
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Muskan Talreja
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .details
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Nimish Khandelwal
+            br
+            a(target='_blanck' href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; ')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Harshita
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Ayan Shrivastav
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .details
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Divyanshu Agrawal
+            br
+            a(target='_blanck' href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; ')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Shivam Koolwal
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+          .cell
+            img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+            br
+            p Abhishek Jain
+            br
+            a(href='')
+              img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+        .cell1
+          img(src='/images/image1.jpeg' style='height: 200px;width:200px' alt='img not avalbl')
+          br
+          p Kanishka
+          br
+          a(href='')
+            img(src='linkedin.jpg' alt='image not found' style='height: 20px; width: 20px; margin-bottom:20px')
+      //
+        <div class="footer">
+        <ul>
+        <li><a href="https://www.instagram.com/recursion_coding_club/" target="_blanck">Instagram</a></li>
+        <li><a>E-mail</a></li>
+        <li><a>Facebook</a></li>
+        </ul>
+        </div>
+

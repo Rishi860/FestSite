@@ -104,15 +104,11 @@ exports.rolechange = async function(req, res){
 exports.userDash = async function(req, res){
     try {
         const userId = req.params.id
-        // console.log(req.headers)
-        // const userId = await userService.decodeToken(token)
         const data = await User.findOne({_id:userId},async function(err, doc){
             if (err){
                 res.send(`Can not find the user requested for error- ${err}`)
             } else{
-                console.log('in else')
                 const EventData = await EventControllers.getUserEvents(doc.participantIn)
-                console.log(doc, EventData)
                 res.render('dashboard', {title:'User Dashboard', data: doc, events:EventData})
             }
         })

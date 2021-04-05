@@ -2,23 +2,21 @@ const Functions = require('../models/Functions')
 
 exports.create = async function(req, res){
     try {
-        // console.log(req.body)
         const payload = req.body
         const newFunction = await Functions.create(payload)
-        // console.log('final')
-        // console.log(newFunction)
         return res.status(200).json({
-            newFunction
+            newFunction,
+            success: true,
         });
 
     } catch (error) {
+        
         return res.status(401).json({ success: false, message: `${error}` });
     }
 }
 
 exports.update = async function(req, res){
     try {
-        // console.log(req.body)
         const payload = req.body
         const updateSuccess= await Functions.findOneAndUpdate({_id: req.body._id}, payload)
         if(updateSuccess){
@@ -36,15 +34,12 @@ exports.update = async function(req, res){
 
 exports.editEvent = async function(req, res){
     try {
-        // console.log('skjfd')
         const _id = req.params.id;
-        // console.log(eId)
         await Functions.findOne({_id}, function(err, doc){
             if(err){
                 console.log(err)
                 res.send('Event not found')
             } else {
-                // console.log(doc)
                 res.render('eventEdit',{title:'Event Edit', data:doc})
             }
         })

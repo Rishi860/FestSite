@@ -1,7 +1,6 @@
 // for registering an event
 
 async function register(id){
-    console.log(id)
     const token = localStorage.getItem('token')
     if (!token){
         alert('Please login before registering in any event!')

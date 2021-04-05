@@ -9,7 +9,7 @@ router.get('/catalog',
     EventControllers.getEvent)
  
 router.get('/', function(req, res){
-    res.render('home',{title:'Home'})
+    res.render('homejade',{title:'Home'})
 })
 
 router.get('/loginstate',

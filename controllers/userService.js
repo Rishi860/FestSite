@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const HASH_SALT_ROUNDS = 12;
 
 exports.register = async function (user){
-    console.log('register in')
     const {name, email, password} = user;
     const userDoc = await User.findOne({
         email
@@ -26,13 +25,10 @@ exports.register = async function (user){
 
     const result = await User.create(newUser)
     return result
-    // res.send(newUser)
-    // console.log('done')
 }
 
 exports.login = async function (user) {
     try {
-        console.log('login in')
         const {email, password} = user;
         if (!email || !password) {
             throw new Error("One or more required fields are empty.");
@@ -43,22 +39,18 @@ exports.login = async function (user) {
             $regex: emailRegex,
             },
         });
-        console.log('user exist')
 
         if (!userDoc) {
             throw new Error("The email or password are incorrect");
         }
 
         const passwordsMatch = await bcrypt.compare(password, userDoc.password);
-        console.log('pass compared')
 
         if (!passwordsMatch) {
-            console.log('entering red zone')
             throw new Error("The email or password are incorrect");
         }
 
         const token = this.createToken(userDoc._id)
-        console.log('token')
         return token;
     } catch (error) {
         console.log(error)
@@ -79,21 +71,11 @@ exports.createToken = async function (user_id) {
 
 exports.verifytoken = async function(req, res, next){
     try {
-        // console.log(req.body)
         const {token} = req.headers
-        // console.log(token)
-        // const payload = req.headers.token;
-        // console.log('verifying :')
         jwt.verify(token, 'secret_key')
-        // console.log('Success')
         res.status(200).json({success:true,login:true})
-        // next();
-        // return {success: true,token}
-
     } catch (error) {
         let e = new Error('Invalid Token')
-        // e.status(400)
-        // next(e)
         return res.status(401).json({ success: false, message: `${error}` });
     }
 }
@@ -101,7 +83,6 @@ exports.verifytoken = async function(req, res, next){
 exports.decodeToken = function(token){
     const decoded = jwt.verify(token, 'secret_key');  
     var userId = decoded.user_id
-    // console.log('userId')
     return userId
 }
 
@@ -112,21 +93,15 @@ exports.loginState = async function(req, res){
     }
     try {
         const {token}  = req.headers;
-        // const token = localStorage.getItem('token')
         if(token){
-            console.log("token here!!!")
-            // console.log(token)
             const {user_id} = jwt.verify(token,'secret_key');
-            // console.log(user_id)
             let {role, _id} = await User.findOne({_id:user_id})
-            // console.log(role)
             payload = {
                 login: true,
                 role,
                 id: _id,
             }
         }
-        console.log('I am in loginState')
         res.send(payload)
     } catch (error) {
         return res.send(payload);

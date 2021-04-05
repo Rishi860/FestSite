@@ -1,7 +1,5 @@
 // creating new event
-// console.log('in add event file')
 async function add(){
-    // console.log('in event function')
     const eName = document.getElementById('eventName').value;
     const eType = document.getElementById('type').value;
     const imageurl = document.getElementById('image').value;
@@ -13,6 +11,14 @@ async function add(){
     const description = document.getElementById('desc').value;
     const time = startTime+ampm1+"-"+endTime+ampm2;
 
+    if(ampm1 === ampm2){
+        if(startTime-endTime>=0){
+            alert('Insert Correct Time')
+            return;
+        }
+    }
+    
+
     const data = {
         name: eName,
         type: eType,
@@ -21,15 +27,19 @@ async function add(){
         image: imageurl,
         eventTime: time,
     }
-    // console.log(data,time)
 
-    const response = await fetch('http://localhost:8080/admin/catalog/create', {
+    let response = await fetch('http://localhost:8080/admin/catalog/create', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(data), // body data type must match "Content-Type" header
     })
-
-    console.log(response)
+    response = await response.json();
+    if (response.success){
+        window.location.href='/admin/catalog'
+    } 
+    if (!(response.success)){
+        alert('Username Alerday Exist')
+    }
 }
