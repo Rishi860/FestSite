@@ -1,6 +1,5 @@
 // watching if the user is online or not
 console.log('verify token in fo=rontend')
-// console.log(localStorage.getItem('token'))
 fetch(`/auth/verifytoken`, {
     method: 'GET',
     headers: {

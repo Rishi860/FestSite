@@ -10,6 +10,5 @@ const functionsSchema = new Schema({
     eventTime:{type:String, match:/[0-1][0-9](AM|PM)-[0-1][0-9](AM|PM)/}
 })
 
-// module.exports = model("Functions", functionsSchema);
 const Functions = model("Functions", functionsSchema);
 module.exports = Functions

@@ -6,7 +6,6 @@ html
         script(src="/javascripts/loginState.js")
         script(src="/javascripts/eventRegister.js")
         link(rel="stylesheet", href="/styles/adminDashboard.css")
-        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     body
         section#team
             .container.my-3.py-5.text-center
@@ -14,14 +13,22 @@ html
                     .col
                         h1 CATALOG
                 .row
-                    each event in data
-                        .4.col-lg-4.col-md-6
-                            .card
-                                .card-body
-                                    img(src='#{event.image}', alt="image 1", class="mb-3")
-                                    h3#eName= event.name
-                                    h5= event.type
-                                    p= event.description
-                                    .d-flex.flex-row.justify-content-center
-                                        .p-4
-                                            a.btn.btn-primary.text-white(onclick='register(\'' + event._id+ '\')') Register
+                    if data
+                        each event in data
+                            .4.col-lg-4.col-md-6
+                                .card
+                                    .card-body
+                                        img(src='#{event.image}', alt="image 1", class="mb-3")
+                                        h3#eName= event.name
+                                        h5= event.type
+                                        p= event.description
+                                        - if(event.eventDate && event.eventTime)
+                                            p 
+                                              |  Date and Time
+                                              br
+                                              = event.eventDate.getDate()+"/"+event.eventDate.getMonth()+"/"+event.eventDate.getYear()+" from "+event.eventTime
+                                        .d-flex.flex-row.justify-content-center
+                                            .p-4
+                                                a.btn.btn-primary.text-white(onclick='register(\'' + event._id+ '\')') Register
+                    else
+                        h1.text-center Catalog will be updated soon

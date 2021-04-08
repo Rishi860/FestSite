@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const UserControllers = require("../controllers/UserControllers")
-// const verifytoken = require('../public/js/ensuretoken')
 const UserServices = require('../controllers/userService')
 
 router.get('/login',function(req, res){

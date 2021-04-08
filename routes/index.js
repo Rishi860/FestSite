@@ -3,8 +3,6 @@ const router = express.Router();
 const EventControllers = require("../controllers/EventControllers")
 const userService = require("../controllers/userService")
 
-// const {verifytoken} = require('../controllers/userService')
-
 router.get('/catalog',
     EventControllers.getEvent)
  

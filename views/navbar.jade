@@ -9,15 +9,6 @@ html( lang="en" )
         //- Bootswatch Theme
         link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
-        //- - let data = {login:'false', role:'student'}
-        //- if payload
-        //-     - let data = {login:payload.login, role:payload.role}
-
-    //- script.
-        //- const token = localstorage.getItem('token');
-        //- if (token){
-        //-     let payload = {login:true, role:}
-        //- }
 
     style.
         .bg{
@@ -42,16 +33,6 @@ html( lang="en" )
                 ul.navbar-nav.mr-auto(list-style-type: none)
                     li.nav-item
                         a.nav-link(href='/') Home
-                        //- span.sr-only (current)
-                    //- li.nav-item
-                    //-     a.nav-link(href='/about') About
-                    //- li.nav-item.dropdown
-                    //-     a(class="nav-link dropdown-toggle", id="navbarDropdown", href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
-                    //-     div(class="dropdown-menu", aria-labelledby='navbarDropdown')
-                    //-         a.dropdown-item(href='#') Action
-                    //-         a.dropdown-item(href='#') Another action
-                            //- div.dropdown-divider
-                            //-     a.dropdown-item(href='#') Something else here
                 form.form-inline.my-2.my-lg-0
                         a.nav-link(href='/catalog') Catalog
                     #admin(style='display: none')
@@ -62,7 +43,4 @@ html( lang="en" )
                     #logTrue(style='display: none')
                         a#loginurl.nav-link Dashboard
                         a.nav-link(onclick='logout()' href='/') Logout
-                    //- button.btn.btn-outline-light.my-2.my-sm-0(formaction="/login") Login
-                    //- button.ml-2.btn.btn-outline-light(action="/register") Register
-        
 

@@ -4,8 +4,6 @@ include ../navbar.jade
 
 html
     head
-        //- title= data._id
-        //- script(src="/javascripts/adminCatalog.js")
         link(rel="stylesheet", href="/styles/adminDashboard.css")
         link(rel="stylesheet", href="/styles/adminCatalog.css")
         script(src="/javascripts/loginState.js")
@@ -33,8 +31,12 @@ html
                                         h3#eName= event.name
                                         h5= event.type
                                         p= event.description
+                                        - if(event.eventDate && event.eventTime)
+                                            p 
+                                              |  Date and Time
+                                              br
+                                              = event.eventDate.getDate()+"/"+event.eventDate.getMonth()+"/"+event.eventDate.getYear()+" from "+event.eventTime
                                         .d-flex.flex-row.justify-content-center
                                             .p-4
                                                 a.btn.btn-primary(href='/admin/edit/#{event._id}') Edit
-                                                //- button.btn.btn-primary(onclick='edit(\'' + event._id+ '\')') Edit
         +catalog(data)

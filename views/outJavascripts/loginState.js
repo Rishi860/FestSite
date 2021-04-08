@@ -1,4 +1,5 @@
 // check wether user is logged in or not
+// dashboard link
 
 fetch(`/loginstate`, {
     method: 'GET',
@@ -13,7 +14,7 @@ fetch(`/loginstate`, {
         if(res.login){
           let logTrue = document.getElementById('logTrue');
           let logFalse = document.getElementById('logFalse');
-          document.getElementById('loginurl').href = `/user/dashboard/${res.id}`;
+          document.getElementById('loginurl').href = `/user/dashboard/${res.username}`;
           logFalse.style['display'] = 'none';
           logTrue.style.removeProperty('display');
         }

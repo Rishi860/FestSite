@@ -62,7 +62,7 @@ exports.createToken = async function (user_id) {
         {
             user_id,
         },
-        'secret_key', // process.env.SECRET_KEY
+        'secret_key',
         {
             expiresIn: "20d",
         }
@@ -95,11 +95,12 @@ exports.loginState = async function(req, res){
         const {token}  = req.headers;
         if(token){
             const {user_id} = jwt.verify(token,'secret_key');
-            let {role, _id} = await User.findOne({_id:user_id})
+            let {role, _id, name} = await User.findOne({_id:user_id})
             payload = {
                 login: true,
                 role,
                 id: _id,
+                username: name,
             }
         }
         res.send(payload)

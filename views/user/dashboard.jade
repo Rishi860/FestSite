@@ -25,6 +25,11 @@ html
                       img(src='#{event.image}', alt="image 1", class="mb-3")
                       h3#eName= event.name
                       h5= event.type
+                      - if(event.eventDate && event.eventTime)
+                          p 
+                            |  Date and Time
+                            br
+                            = event.eventDate.getDate()+"/"+event.eventDate.getMonth()+"/"+event.eventDate.getYear()+" from "+event.eventTime
                       .d-flex.flex-row.justify-content-center
                         .p-4
                           a.btn.btn-primary.text-white(onclick='deregister(\'' + event._id+ '\',\'' + data._id+ '\')') De-Register

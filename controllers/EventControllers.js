@@ -43,19 +43,6 @@ exports.editEvent = async function(req, res){
                 res.render('eventEdit',{title:'Event Edit', data:doc})
             }
         })
-        // console.log(result);
-        // res.render('eventEdit', {data:result})
-        // res.redirect(res.redirect(url.format({
-        //     pathname:"/edit",
-        //     query: {
-        //        "id": eId,
-        //      }
-        //   })))
-        // const token = await userService.login(payload);
-        // console.log('out from login',token)
-        // // return {success: true,token}
-        // res.send('working');
-
     } catch (error) {
         return res.status(401).json({ success: false, message: `${error}` });
     }
@@ -66,7 +53,7 @@ exports.getEvent = async function(req, res){
         await Functions.find({},function(err, result){
             if(err){
                 console.log(err)
-                res.send('Databse is empty')
+                res.render('catalog',{data:0})
             } else {
                 res.render('catalog',{data:result})
             }
@@ -98,7 +85,7 @@ exports.delete = async function(req, res){
                 console.log(err)
                 res.send(`Can't be deleted error- ${err}`)
             } else {
-                res.redirect('/admin/catalog')
+                res.json({ success: true })
             }
         })
     } catch (error) {

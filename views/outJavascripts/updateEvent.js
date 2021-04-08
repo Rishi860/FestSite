@@ -20,7 +20,6 @@ async function update(id){
         image: imageurl,
         eventTime: time,
     }
-    // console.log(data,time)
 
     const response = await fetch('http://localhost:8080/admin/catalog/update', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -31,8 +30,28 @@ async function update(id){
     })
 
     const success = (await response.json()).success;
-    console.log(success)
     if(success){
+        alert('Update Successful!')
         window.location.href ='/admin/catalog'
     }
+}
+
+async function deleteEvent(id){
+    if (confirm('Event Selected will be deleted!!')){
+        const response = await fetch(`http://localhost:8080/admin/delete/${id}`, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+            'Content-Type': 'application/json'
+            },
+        })
+
+        const success = (await response.json()).success;
+        if(success){
+            alert('Event Deleted')
+            window.location.href ='/admin/catalog'
+        }
+    } else {
+        return;
+    }
+    
 }

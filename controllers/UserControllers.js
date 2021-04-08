@@ -103,8 +103,8 @@ exports.rolechange = async function(req, res){
 
 exports.userDash = async function(req, res){
     try {
-        const userId = req.params.id
-        const data = await User.findOne({_id:userId},async function(err, doc){
+        const username = req.params.name
+        await User.findOne({name:username},async function(err, doc){
             if (err){
                 res.send(`Can not find the user requested for error- ${err}`)
             } else{
