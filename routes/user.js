@@ -9,4 +9,5 @@ UserControllers.eventRegister)
 router.get('/dashboard/:name',
 UserControllers.userDash)
 
+
 module.exports = router

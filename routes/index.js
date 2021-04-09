@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const EventControllers = require("../controllers/EventControllers")
+const UserControllers = require("../controllers/UserControllers")
 const userService = require("../controllers/userService")
 
 router.get('/catalog',
@@ -11,6 +12,9 @@ router.get('/', function(req, res){
 })
 
 router.get('/loginstate',
-    userService.loginState)
+userService.loginState)
+
+router.get('/deregister/:id',
+UserControllers.eventDreg)
 
 module.exports = router

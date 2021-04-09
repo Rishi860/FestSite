@@ -19,16 +19,20 @@ async function register(id){
 // For de-registering an event
 
 async function deregister(eventId, userId){
-    let response = await fetch(`/admin/deregister/${eventId}`,{
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            userId,
-        },
-    })
-    response  = await response.json();
-    if (response.ok) alert(`${response.message}`)
-    else alert(`${response.message}`)
-    window.location.reload();
+    if(confirm('Selected Event Will be De-Registered!!')){
+        let response = await fetch(`/deregister/${eventId}`,{
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                userId,
+            },
+        })
+        response  = await response.json();
+        if (response.ok) alert(`${response.message}`)
+        else alert(`${response.message}`)
+        window.location.reload();
+    }else{
+        return;
+    }
 }
 
 async function rolechange(id){

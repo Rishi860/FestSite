@@ -26,8 +26,6 @@ router.get('/users',
 UserControllers.userList)
 router.get('/users/:id',
 UserControllers.userInfo)
-router.get('/deregister/:id',
-UserControllers.eventDreg)
 
 router.get('/rolechange/:id',
 UserControllers.rolechange)

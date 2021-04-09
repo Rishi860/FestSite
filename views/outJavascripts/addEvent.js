@@ -11,6 +11,11 @@ async function add(){
     const description = document.getElementById('desc').value;
     const time = startTime+ampm1+"-"+endTime+ampm2;
 
+    if(!eName || !imageurl || !date || !description){
+        alert('Few fields might be empty!!')
+        return;
+    }
+
     if(ampm1 === ampm2){
         if(startTime-endTime>=0){
             alert('Insert Correct Time')
