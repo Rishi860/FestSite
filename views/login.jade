@@ -17,10 +17,10 @@ html
         div.card.text-white.mt-3.ml-1.bg(style='max-width: 18rem;')
             div.card-header Login
             .card-body.text-white(style="color:#4a637c;")
-                | Email
+                label(for='email') Email
                 input#email(type='text' label='email' placeholder="Email")
-                | Password
-                input#password(type='password' label='password' placeholder="Password")
+                label(for='password') Password
+                input#password(type='password' placeholder="Password")
                 a.btn.btn-primary.mt-2(onclick="login()") Login
                 p.mt-3 New user?
                     a(href="/auth/register") Register
